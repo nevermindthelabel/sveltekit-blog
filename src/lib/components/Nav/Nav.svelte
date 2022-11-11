@@ -5,14 +5,16 @@
 	import NavItem from './NavItem.svelte';
 	import Icons from '../Icons/Icons.svelte';
 	const allFiles = import.meta.glob('/src/routes/**/*+page.svelte');
-	const pages = Object.keys(allFiles).map(f => {
-		const idealPage = f.split('/').at(-2);
-		if (idealPage === 'routes') {
-			return { href: '/', page: 'home' };
-		} else {
-			return { href: `/${idealPage}`, page: idealPage };
-		}
-	});
+	const pages = Object.keys(allFiles)
+		.filter(pages => pages.split('/').at(-2) !== 'routes')
+		.map(f => {
+			const idealPage = f.split('/').at(-2);
+			if (idealPage === 'routes') {
+				return { href: '/', page: 'home' };
+			} else {
+				return { href: `/${idealPage}`, page: idealPage };
+			}
+		});
 	// let initialColor = '';
 	onMount(() => {
 		// initialColor = getComputedStyle(document.documentElement).getPropertyValue('--text-1');
