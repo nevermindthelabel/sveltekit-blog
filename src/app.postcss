@@ -85,7 +85,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li {
 	overflow-wrap: break-word;
 	font-family: 'Victor Mono';
 }
@@ -307,6 +308,7 @@ body {
 
 [data-theme='dark'] {
 	color-scheme: dark;
+	--main-color: #ff3e00;
 	--link: var(--indigo-3);
 	--link-visited: var(--grape-3);
 	--text-1: var(--gray-1);
@@ -323,6 +325,7 @@ body {
 }
 
 [data-theme='light'] {
+	--main-color: #006ad5;
 	--surface-3: var(--gray-3);
 	--surface-4: var(--gray-4);
 	--scrollthumb-color: var(--gray-7);
