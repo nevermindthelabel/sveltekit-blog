@@ -11,8 +11,13 @@
 </a>
 
 <style lang="postcss">
+	a:not(.active) {
+		color: var(--text-color);
+	}
 	.active {
-		font-weight: bold;
+		/* font-weight: bold; */
 		font-style: italic;
+		font-weight: 400;
+		color: var(--main-highlight-color);
 	}
 </style>

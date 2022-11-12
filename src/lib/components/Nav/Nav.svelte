@@ -1,6 +1,4 @@
 <script type="ts">
-	import { onMount } from 'svelte';
-	import Icon from '$lib/components/Icons/Icons.svelte';
 	import ThemeToggle from '../ThemeToggle/ThemeToggle.svelte';
 	import NavItem from './NavItem.svelte';
 	import Icons from '../Icons/Icons.svelte';
@@ -9,71 +7,95 @@
 		.filter(pages => pages.split('/').at(-2) !== 'routes')
 		.map(f => {
 			const idealPage = f.split('/').at(-2);
-			if (idealPage === 'routes') {
-				return { href: '/', page: 'home' };
-			} else {
-				return { href: `/${idealPage}`, page: idealPage };
-			}
+			return { href: `/${idealPage}`, page: idealPage };
 		});
-	// let initialColor = '';
-	onMount(() => {
-		// initialColor = getComputedStyle(document.documentElement).getPropertyValue('--text-1');
-		// console.log(initialColor);
-	});
-	// $: console.log(document?.querySelector('.color')?.value);
-	// afterNavigate((p) => console.log(p));
-	// const colorPickerChange = e => {
-	// 	// console.log(e.target.value);
-	// 	// console.log(getComputedStyle(document.body));
-	// 	const styles = getComputedStyle(document.body).getPropertyValue('--text-1');
-	// 	// console.log(styles);
-	// 	document.documentElement.style.setProperty('--text-1', e.currentTarget?.value);
-	// };
+	let toggled = false;
 </script>
 
 <nav>
-	<a href="/" class="home">
-		<span> Matt Kilcup </span>
-	</a>
-	<button class="toggle"
-		><Icons name="hamburger" fill="currentcolor" height="30" width="30" /></button
+	<button class="toggle" on:click={() => (toggled = !toggled)}
+		>{#if !toggled}
+			<Icons name="hamburger" fill="currentcolor" height="30" width="30" />
+		{:else}
+			<Icons name="fries" fill="currentcolor" height="30" width="30" />
+		{/if}</button
 	>
-	{#each pages as { href, page }}
-		<NavItem {href}>
-			<li class={href}>{page}</li>
-		</NavItem>
-	{/each}
-	<ThemeToggle />
-	<!-- <input type="color" class="color" on:input={colorPickerChange} bind:value={initialColor} /> -->
+	<ul class="flex">
+		<span class="home">
+			<NavItem href="/">
+				<li>Matt Kilcup</li>
+			</NavItem>
+		</span>
+		{#each pages as { href, page }}
+			<NavItem {href}>
+				<li class="item {toggled ? 'expanded' : ''} ">{page}</li>
+			</NavItem>
+		{/each}
+	</ul>
+	<span class="theme">
+		<ThemeToggle />
+	</span>
 </nav>
 
 <style lang="postcss">
-	nav {
-		padding: var(--size-4);
+	ul {
+		margin: auto;
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
+		flex-direction: column;
 		gap: var(--size-4);
-		justify-content: flex-end;
+		padding: 0 var(--size-5);
+		justify-content: center;
+		align-items: center;
+	}
+	.toggle {
+		display: inline-flex;
+		width: 30px;
+		height: 40px;
+		border: none;
+		background-color: transparent;
+	}
+	.item {
+		display: none;
+	}
+	.item.expanded {
+		display: flex;
+	}
+	nav {
+		display: grid;
+		padding: var(--size-4);
 		width: 100vw;
+		grid-template-columns: 1fr 10fr 0.5fr;
+		align-items: baseline;
 	}
 	.home {
 		margin-right: auto;
 	}
 	li {
 		list-style-type: none;
-	}
-	button {
-		cursor: pointer;
+		font-size: var(--font-size-fluid-2);
 	}
 	@media (min-width: 640px) {
 	}
 	@media (min-width: 768px) {
+	}
+	@media (min-width: 1024px) {
 		.toggle {
 			display: none;
 		}
-	}
-	@media (min-width: 1024px) {
+		nav {
+			grid-template-columns: 10fr 0.5fr;
+			align-items: center;
+			/* align-items: flex-start; */
+			/* justify-items: left; */
+		}
+		ul {
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		.item {
+			display: flex;
+		}
 	}
 	@media (min-width: 1280px) {
 	}

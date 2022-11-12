@@ -30,7 +30,13 @@
 
 <style lang="postcss">
 	.theme-toggle {
-		background: none;
+		width: 30px;
+		height: 40px;
+	}
+
+	.theme-toggle:hover,
+	.theme-toggle:focus {
+		border: var(--main-highlight-color);
 	}
 
 	#moon,
@@ -38,8 +44,8 @@
 		fill: var(--nav-icon);
 		stroke: none;
 
-		@nest :hover > svg > & {
-			fill: var(--nav-icon-hover);
+		@nest :hover > svg > &, :focus > svg > & {
+			fill: var(--main-highlight-color);
 		}
 	}
 

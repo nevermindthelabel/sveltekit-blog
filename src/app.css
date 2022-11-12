@@ -106,7 +106,9 @@ h4,
 h5,
 h6 {
 	overflow-wrap: break-word;
-	font-family: 'Victor Mono';
+	font-family: ui-monospace, 'Victor Mono', Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
+		'Droid Sans Mono', 'Courier New', monospace;
 }
 /*
   9. Create a root stacking context

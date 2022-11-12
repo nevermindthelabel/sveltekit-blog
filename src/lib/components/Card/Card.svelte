@@ -15,9 +15,10 @@
 		border-radius: var(--radius-2);
 		padding: var(--size-fluid-3);
 		box-shadow: var(--shadow-2);
+		/* background-color: calc(var(--)); */
 	}
 
 	.card:hover {
-		box-shadow: var(--shadow-3);
+		box-shadow: var(--shadow-4);
 	}
 </style>
