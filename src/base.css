@@ -1,35 +1,3 @@
-/* @font-face {
-	font-family: 'Victor Mono';
-	src: local('victor mono'), local('Victor-Mono'), local('victor-mono'), local('Victor-mono'),
-		url('/fonts/VictorMono-Medium.woff2'), url('/fonts/VictorMono-Medium.woff');
-	font-weight: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Victor Mono';
-	src: local('VictorMono-Bold'), local('Victor-Mono-Bold'), local('victor-mono-bold'),
-		local('victormonobold'), url('/fonts/VictorMono-Bold.woff2'), url('/fonts/VictorMono-Bold.woff');
-	font-weight: bold;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Victor Mono';
-	src: local('Victor Mono Italic'), local('VictorMono-italic'), local('VictorMono-Italic'),
-		local('victor-mono-italic') url('/fonts/VictorMono-Italic.woff2'),
-		url('/fonts/VictorMono-Italic.woff');
-	font-weight: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Victor Mono';
-	src: local('Victor Mono BoldItalic'), local('VictorMono-bolditalic'),
-		local('VictorMono-Bold-Italic'),
-		local('victor-mono-bold-italic') url('/fonts/VictorMono-BoldItalic.woff2'),
-		url('/fonts/VictorMono-BoldItalic.woff');
-	font-weight: bold italic;
-	font-display: swap;
-} */
 /* #e72200 small text*/
 /* #db0d00 */
 /* #ff3e00 */
