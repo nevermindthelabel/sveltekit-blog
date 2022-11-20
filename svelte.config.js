@@ -1,13 +1,35 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
+import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: preprocess({ postcss: true }),
+	// Ensures both .svelte and .md files are treated as components (can be imported and used anywhere, or used as pages)
+	extensions: ['.svelte', '.md'],
+
+	preprocess: [
+		preprocess({ postcss: true }),
+		mdsvex({
+			extensions: ['.md'],
+			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
+		})
+	],
+
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			entries: [
+				'*',
+				'/api/posts/category/*',
+				'/api/posts/page/*',
+				'/blog/category/*/page',
+				'/blog/category/*/page/*',
+				'/blog/category/page/*',
+				'/blog/page/*'
+			]
+		}
 	}
 };
 
