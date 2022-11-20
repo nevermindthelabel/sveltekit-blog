@@ -33,3 +33,9 @@
 <svg class={theClass} {width} {height} viewBox="0 0 {displayIcon?.box} {displayIcon?.box}"
 	>{@html displayIcon?.svg}</svg
 >
+
+<style>
+	svg {
+		pointer-events: none;
+	}
+</style>
