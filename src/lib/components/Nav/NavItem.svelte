@@ -1,12 +1,18 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
 	export let href: string = '';
 	$: activePage = $page.data?.url;
-	onMount(() => {});
 	import { page } from '$app/stores';
 </script>
 
-<a {href} class:active={activePage === href} aria-current={activePage === href ? 'page' : false}>
+<a
+	data-sveltekit-prefetch
+	{href}
+	class:active={activePage === href}
+	aria-current={activePage === href ? 'page' : false}
+	on:click
+>
 	<slot />
 </a>
 
@@ -15,7 +21,6 @@
 		color: var(--text-color);
 	}
 	.active {
-		/* font-weight: bold; */
 		font-style: italic;
 		font-weight: 400;
 		color: var(--main-highlight-color);

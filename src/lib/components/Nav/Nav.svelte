@@ -9,11 +9,16 @@
 			const idealPage = f.split('/').at(-2);
 			return { href: `/${idealPage}`, page: idealPage };
 		});
+	import { flip } from 'svelte/animate';
+	import { page } from '$app/stores';
 	let toggled = false;
+	function handleClick() {
+		toggled = !toggled;
+	}
 </script>
 
-<nav>
-	<button class="toggle" on:click={() => (toggled = !toggled)}
+<nav aria-expanded={toggled}>
+	<button class="toggle" on:click={handleClick}
 		>{#if !toggled}
 			<Icons name="hamburger" fill="currentcolor" height="30" width="30" />
 		{:else}
@@ -27,8 +32,10 @@
 			</NavItem>
 		</span>
 		{#each pages as { href, page }}
-			<NavItem {href}>
-				<li class="item {toggled ? 'expanded' : ''} ">{page}</li>
+			<NavItem {href} on:click={handleClick}>
+				<li class="item {toggled ? 'expanded' : ''}">
+					{page}
+				</li>
 			</NavItem>
 		{/each}
 	</ul>
@@ -39,13 +46,10 @@
 
 <style lang="postcss">
 	ul {
-		margin: auto;
 		display: flex;
 		flex-direction: column;
 		gap: var(--size-4);
 		padding: 0 var(--size-5);
-		justify-content: center;
-		align-items: center;
 	}
 	.toggle {
 		display: inline-flex;
@@ -65,7 +69,14 @@
 		padding: var(--size-4);
 		width: 100vw;
 		grid-template-columns: 1fr 10fr 0.5fr;
-		align-items: baseline;
+		max-height: 160px;
+		transition: max-height 1s ease-in-out;
+		place-content: start;
+	}
+
+	nav[aria-expanded='true'] {
+		max-height: 1000px;
+		transition: max-height 1s ease-in-out;
 	}
 	.home {
 		margin-right: auto;
@@ -85,13 +96,14 @@
 		nav {
 			grid-template-columns: 10fr 0.5fr;
 			align-items: center;
-			/* align-items: flex-start; */
-			/* justify-items: left; */
 		}
 		ul {
 			flex-direction: row;
 			align-items: center;
-			justify-content: flex-start;
+			/* justify-content: flex-start; */
+			margin: auto;
+			justify-content: center;
+			/* align-items: center; */
 		}
 		.item {
 			display: flex;
