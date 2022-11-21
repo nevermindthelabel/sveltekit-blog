@@ -50,6 +50,8 @@
 		flex-direction: column;
 		gap: var(--size-4);
 		padding: 0 var(--size-5);
+		margin: auto;
+		align-items: center;
 	}
 	.toggle {
 		display: inline-flex;
@@ -99,11 +101,10 @@
 		}
 		ul {
 			flex-direction: row;
-			align-items: center;
-			/* justify-content: flex-start; */
-			margin: auto;
-			justify-content: center;
-			/* align-items: center; */
+			/* align-items: flex-start; */
+			/* margin: auto; */
+			/* justify-content: center; */
+			margin: unset;
 		}
 		.item {
 			display: flex;
