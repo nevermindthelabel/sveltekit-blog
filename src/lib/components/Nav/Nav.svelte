@@ -4,7 +4,9 @@
 	import Icons from '../Icons/Icons.svelte';
 	const allFiles = import.meta.glob('/src/routes/**/*+page.svelte');
 	const pages = Object.keys(allFiles)
-		.filter(pages => pages.split('/').at(-2) !== 'routes')
+		.filter(
+			pages => pages.split('/').at(-2) !== 'routes' && !pages.split('/').at(-2)?.includes('[')
+		)
 		.map(f => {
 			const idealPage = f.split('/').at(-2);
 			return { href: `/${idealPage}`, page: idealPage };
@@ -87,6 +89,10 @@
 		list-style-type: none;
 		font-size: var(--font-size-fluid-2);
 	}
+	/* li:hover,
+	a:focus {
+		color: hsl(calc(var(--h) / 1.5), calc(var(--s) / 1.5), calc(var(--l) / 1.5));
+	} */
 	@media (min-width: 640px) {
 	}
 	@media (min-width: 768px) {
@@ -101,9 +107,6 @@
 		}
 		ul {
 			flex-direction: row;
-			/* align-items: flex-start; */
-			/* margin: auto; */
-			/* justify-content: center; */
 			margin: unset;
 		}
 		.item {

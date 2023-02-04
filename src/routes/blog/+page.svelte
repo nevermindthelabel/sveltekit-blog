@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { getStores } from '$app/stores';
+	import type { PageData } from './$types';
+	import Card from '$lib/components/Card/Card.svelte';
+	export let data: PageData;
 </script>
 
-<p>test</p>
+{#each data.thePosts as post}
+	<Card>
+		<h2>{post.title}</h2>
+		<p>{post.excerpt}</p>
+	</Card>
+{/each}
 
 <style lang="postcss">
-	p {
-		color: green;
-	}
 </style>

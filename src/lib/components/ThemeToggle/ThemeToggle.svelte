@@ -36,33 +36,40 @@
 
 	.theme-toggle:hover,
 	.theme-toggle:focus {
-		border: var(--main-highlight-color);
+		border: var(--special-color);
 	}
-
+	/* [data-theme='light'] #sun {
+		transform: scale(0.5);
+	} */
 	#moon,
 	#sun {
-		fill: var(--nav-icon);
+		fill: hsl(var(--h), var(--s), var(--l));
 		stroke: none;
 
 		@nest :hover > svg > &, :focus > svg > & {
-			fill: var(--main-highlight-color);
+			/* scale: 1.2; */
+			/* fill: var(--special-bg-color); */
 		}
 	}
 
 	#sun {
+		fill: hsl(var(--h), var(--s), var(--l));
 		transition: transform 0.5s var(--ease-4);
 		transform-origin: center center;
 	}
 
 	#sun-beams {
 		--_opacity-dur: 0.15s;
-		stroke: var(--nav-icon);
+		stroke: hsl(var(--h), var(--s), var(--l));
 		stroke-width: 2px;
 		transform-origin: center center;
 		transition: transform 0.5s var(--ease-elastic-4), opacity var(--_opacity-dur) var(--ease-3);
 
 		@nest :hover > svg > & {
-			stroke: var(--nav-icon-hover);
+			/* stroke: var(--special-bg-color); */
+			/* stroke-width: 0.1rem; */
+			fill: hsl(var(--h), var(--s), var(--l));
+			/* scale: 1.1; */
 		}
 	}
 

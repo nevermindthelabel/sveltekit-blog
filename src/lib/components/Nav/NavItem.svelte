@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { browser } from '$app/environment';
 	export let href: string = '';
 	$: activePage = $page.data?.url;
 	import { page } from '$app/stores';
@@ -20,9 +18,13 @@
 	a:not(.active) {
 		color: var(--text-color);
 	}
+	a:hover,
+	a:focus {
+		color: hsl(var(--h), var(--s), var(--l));
+	}
 	.active {
 		font-style: italic;
-		font-weight: 400;
-		color: var(--main-highlight-color);
+		font-weight: 600;
+		color: hsl(var(--h), var(--s), var(--l));
 	}
 </style>

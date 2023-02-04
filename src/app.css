@@ -148,6 +148,10 @@ footer {
 	z-index: 0;
 }
 
+html[data-theme='dark'] > * main {
+	background-color: #000;
+}
+
 /* body {
 
 	--brand-light: var(--orange-6);
