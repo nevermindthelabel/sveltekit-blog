@@ -51,7 +51,7 @@ body::-webkit-scrollbar-thumb {
 	--red: 200;
 	--green: 60;
 	--blue: 255;
-	/* the threshold at which colors are considered "light". 
+	/* the threshold at which colors are considered "light".
   Range: decimals from 0 to 1, recommended 0.5 - 0.6 */
 	--threshold: 0.5;
 	/* the threshold at which a darker border will be applied.
@@ -179,22 +179,22 @@ html[data-theme='dark'] > * main {
 @font-face {
 	font-family: 'Victor Mono';
 	src: local('victor mono'), local('Victor-Mono'), local('victor-mono'), local('Victor-mono'),
-		url('/fonts/VictorMono-Medium.woff2'), url('/fonts/VictorMono-Medium.woff');
+		url('/static/fonts/VictorMono-Medium.woff2'), url('/static/fonts/VictorMono-Medium.woff');
 	font-weight: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Victor Mono';
 	src: local('VictorMono-Bold'), local('Victor-Mono-Bold'), local('victor-mono-bold'),
-		local('victormonobold'), url('/fonts/VictorMono-Bold.woff2'), url('/fonts/VictorMono-Bold.woff');
+		local('victormonobold'), url('/static/fonts/VictorMono-Bold.woff2'), url('/static/fonts/VictorMono-Bold.woff');
 	font-weight: bold;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Victor Mono';
 	src: local('Victor Mono Italic'), local('VictorMono-italic'), local('VictorMono-Italic'),
-		local('victor-mono-italic') url('/fonts/VictorMono-Italic.woff2'),
-		url('/fonts/VictorMono-Italic.woff');
+		local('victor-mono-italic') url('/static/fonts/VictorMono-Italic.woff2'),
+		url('/static/fonts/VictorMono-Italic.woff');
 	font-weight: italic;
 	font-display: swap;
 }
@@ -203,8 +203,8 @@ html[data-theme='dark'] > * main {
 	font-family: 'Victor Mono';
 	src: local('Victor Mono BoldItalic'), local('VictorMono-bolditalic'),
 		local('VictorMono-Bold-Italic'),
-		local('victor-mono-bold-italic') url('/fonts/VictorMono-BoldItalic.woff2'),
-		url('/fonts/VictorMono-BoldItalic.woff');
+		local('victor-mono-bold-italic') url('/static/fonts/VictorMono-BoldItalic.woff2'),
+		url('/static/fonts/VictorMono-BoldItalic.woff');
 	font-weight: bold italic;
 	font-display: swap;
 }
