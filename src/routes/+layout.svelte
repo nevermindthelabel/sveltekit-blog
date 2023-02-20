@@ -52,4 +52,8 @@
 <Footer />
 
 <style lang="postcss">
+	main {
+		display: flex;
+		justify-content: center;
+	}
 </style>
